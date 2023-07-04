@@ -204,40 +204,41 @@ header{
 .login-registro p a:hover{
     text-decoration: underline;
 }
-
-.password-strength .icons i.checked {
-    color: green;
-  }
-  .password-strength:not(.valid) .icons i:not(.checked)::after {
+.password-strength .icons i:before {
     content: 'X';
     color: red;
-  }
-  .icons .fa-check {
-    display: none;
+    margin-right: 5px;
   }
   
-  .icons .fa-check.checked {
-    display: block;
-  }
-  .icons i.hidden {
-    display: none;
-  }
-  .password-strength .icons {
-    position: relative;
+  .password-strength.valid .icons i:before {
+    content: '\2713'; /* Código Unicode para la palomita */
+    color: green;
+    margin-right: 5px;
   }
   
-  .password-strength .icons i {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    margin-right: 10px;
+  .password-strength .icons i.checked:before {
+    content: '\2713'; /* Código Unicode para la palomita */
+    color: green;
+    margin-right: 5px;
   }
   
-  .password-strength p {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
+  .password-strength .icons i.hidden:before {
+    content: 'X';
+    color: red;
+    margin-right: 5px;
   }
+  .password-strength {
+    margin-bottom: 10px; /* Ajusta el valor según el espacio deseado */
+  }
+    
+    
+  
+
+  
+  
+  
+  
+  
   
   
   

@@ -10,7 +10,10 @@ function checkPasswordStrength() {
 
   // Ocultar los íconos de palomita y equis si el campo de contraseña está vacío
   if (password === '') {
-    strengthIcons.forEach(icon => icon.classList.remove('checked'));
+    strengthIcons.forEach(icon => {
+      icon.classList.remove('checked');
+      icon.classList.remove('hidden');
+    });
     passwordStrength.classList.remove('valid');
     return;
   }
@@ -39,6 +42,17 @@ function checkPasswordStrength() {
     strengthIcons[2].classList.remove('checked');
   }
 
+  // Agrega la clase 'checked' o 'hidden' según se cumplan las condiciones
+  strengthIcons.forEach((icon, index) => {
+    if (index < validCount) {
+      icon.classList.add('checked');
+      icon.classList.remove('hidden');
+    } else {
+      icon.classList.remove('checked');
+      icon.classList.add('hidden');
+    }
+  });
+
   // Mostrar solo la palomita si todos los requisitos se cumplen
   if (validCount === 3) {
     passwordStrength.classList.add('valid');
@@ -46,6 +60,8 @@ function checkPasswordStrength() {
     passwordStrength.classList.remove('valid');
   }
 }
+
+
 
 
 
